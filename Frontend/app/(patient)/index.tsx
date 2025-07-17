@@ -27,13 +27,13 @@ export default function PatientHomeScreen() {
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) {
-      setGreeting('Good Morning');
+      setGreeting(t('goodMorning'));
     } else if (hour < 17) {
-      setGreeting('Good Afternoon');
+      setGreeting(t('goodAfternoon'));
     } else {
-      setGreeting('Good Evening');
+      setGreeting(t('goodEvening'));
     }
-  }, []);
+  }, [t]);
 
   const quickActions = [
     {
@@ -51,14 +51,14 @@ export default function PatientHomeScreen() {
       gradient: (isDark ? ['#A3327A', '#B85A92'] : ['#D1A3C9', '#A3327A']) as readonly [string, string, ...string[]]
     },
     {
-      title: 'Health Chat',
+      title: t('healthChat'),
       subtitle: 'Ask our AI assistant',
       icon: '✨',
       route: '/(patient)/chat',
       gradient: (isDark ? ['#B85A92', '#A3327A'] : ['#F4D3E5', '#B85A92']) as readonly [string, string, ...string[]]
     },
     {
-      title: 'Find Clinics',
+      title: t('findClinics'),
       subtitle: 'Nearby healthcare providers',
       icon: '🏥',
       route: '/(patient)/clinics',
@@ -68,17 +68,17 @@ export default function PatientHomeScreen() {
 
   const healthTips = [
     {
-      title: 'Stay Hydrated',
+      title: t('stayHydrated'),
       description: 'Drink at least 8 glasses of water daily to support overall health',
       icon: '💧'
     },
     {
-      title: 'Regular Exercise',
+      title: t('regularExercise'),
       description: 'Light exercises can help reduce cyst-related discomfort',
       icon: '🏃‍♀️'
     },
     {
-      title: 'Healthy Diet',
+      title: t('healthyDiet'),
       description: 'Reduce processed foods and increase fruits and vegetables',
       icon: '🥗'
     }
@@ -129,7 +129,7 @@ export default function PatientHomeScreen() {
           fontSize: 16, 
           color: '#A3327A' 
         }}>
-          How are you feeling today?
+          {t('howAreYou')}
         </Text>
         
         {/* Health Status Card */}
@@ -145,7 +145,7 @@ export default function PatientHomeScreen() {
             color: 'white', 
             marginBottom: 10 
           }}>
-            Health Status
+            {t('healthStatus')}
           </Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <TouchableOpacity 
@@ -181,7 +181,7 @@ export default function PatientHomeScreen() {
           color: colors.text, 
           marginBottom: 20 
         }}>
-          Quick Actions
+          {t('quickActions')}
         </Text>
         
         <View style={{ 
@@ -238,7 +238,7 @@ export default function PatientHomeScreen() {
           color: colors.text, 
           marginBottom: 15 
         }}>
-          Upcoming Appointments
+          {t('upcomingAppointments')}
         </Text>
         
         {upcomingAppointments.map((appointment, index) => (
@@ -280,7 +280,7 @@ export default function PatientHomeScreen() {
           color: colors.text, 
           marginBottom: 15 
         }}>
-          Daily Health Tips
+          {t('dailyHealthTips')}
         </Text>
         
         {healthTips.map((tip, index) => (
@@ -322,7 +322,7 @@ export default function PatientHomeScreen() {
           color: colors.text, 
           marginBottom: 15 
         }}>
-          🔬 Advanced Health Analytics
+          🔬 {t('advancedHealthAnalytics')}
         </Text>
         
         <View style={{ 
@@ -345,7 +345,7 @@ export default function PatientHomeScreen() {
                 fontWeight: 'bold', 
                 color: colors.text 
               }}>
-                AI Risk Assessment
+                {t('aiRiskAssessment')}
               </Text>
               <Text style={{ 
                 fontSize: 14, 
@@ -359,7 +359,7 @@ export default function PatientHomeScreen() {
               fontWeight: 'bold', 
               color: '#22c55e' 
             }}>
-              Low Risk
+              {t('lowRisk')}
             </Text>
           </View>
           
@@ -376,7 +376,7 @@ export default function PatientHomeScreen() {
               color: 'white', 
               fontWeight: 'bold' 
             }}>
-              🚀 Run Advanced Analysis
+              🚀 {t('runAdvancedAnalysis')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -400,7 +400,7 @@ export default function PatientHomeScreen() {
                 fontWeight: 'bold', 
                 color: colors.text 
               }}>
-                Health Trends & Insights
+                {t('healthTrends')}
               </Text>
               <Text style={{ 
                 fontSize: 14, 
@@ -424,7 +424,7 @@ export default function PatientHomeScreen() {
               color: 'white', 
               fontWeight: 'bold' 
             }}>
-              📈 View Analytics Dashboard
+              📈 {t('viewAnalytics')}
             </Text>
           </TouchableOpacity>
         </View>

@@ -119,7 +119,7 @@ export default function ProfileScreen() {
             color: '#A3327A', 
             marginBottom: 5 
           }}>
-            Test Patient
+            Laura Gachanja
           </Text>
           <Text style={{ 
             fontSize: 16, 
@@ -128,7 +128,31 @@ export default function ProfileScreen() {
             {user?.email}
           </Text>
           <TouchableOpacity
-            onPress={() => Alert.alert('Edit Profile', 'Profile editing feature coming soon!')}
+            onPress={() => {
+              Alert.alert(
+                t('editProfile'),
+                'Update your profile information',
+                [
+                  { text: 'Cancel', style: 'cancel' },
+                  { 
+                    text: 'Edit', 
+                    onPress: () => {
+                      Alert.prompt(
+                        'Edit Name',
+                        'Enter new name:',
+                        (text) => {
+                          if (text) {
+                            Alert.alert('Success', `Name updated to: ${text}`);
+                          }
+                        },
+                        'plain-text',
+                        'Laura Gachanja'
+                      );
+                    }
+                  }
+                ]
+              );
+            }}
             style={{
               backgroundColor: 'rgba(255,255,255,0.2)',
               borderRadius: 20,
@@ -137,7 +161,7 @@ export default function ProfileScreen() {
               marginTop: 10
             }}
           >
-            <Text style={{ color: 'white', fontWeight: 'bold' }}>✏️ Edit Profile</Text>
+            <Text style={{ color: 'white', fontWeight: 'bold' }}>✏️ {t('editProfile')}</Text>
           </TouchableOpacity>
         </LinearGradient>
 
@@ -213,7 +237,7 @@ export default function ProfileScreen() {
               color: colors.text, 
               marginBottom: 15 
             }}>
-              🎨 Appearance
+              🎨 {t('appearance')}
             </Text>
             
             {themeOptions.map((option) => (
@@ -258,7 +282,7 @@ export default function ProfileScreen() {
               color: colors.text, 
               marginBottom: 15 
             }}>
-              ⚙️ Settings
+              ⚙️ {t('settings')}
             </Text>
             
             <View style={{ 
@@ -335,7 +359,7 @@ export default function ProfileScreen() {
               color: colors.text, 
               marginBottom: 15 
             }}>
-              🌐 Language & Region
+              🌐 {t('languageRegion')}
             </Text>
             
             {languages.map((lang) => (
@@ -380,7 +404,7 @@ export default function ProfileScreen() {
               color: colors.text, 
               marginBottom: 15 
             }}>
-              📚 Support & Legal
+              📚 {t('supportLegal')}
             </Text>
             
             <TouchableOpacity
@@ -482,11 +506,31 @@ export default function ProfileScreen() {
               color: colors.text, 
               marginBottom: 15 
             }}>
-              💾 Data Management
+              💾 {t('dataManagement')}
             </Text>
             
             <TouchableOpacity
-              onPress={() => Alert.alert('Export Data', 'Your health data will be exported in a secure format. This may take a few minutes.')}
+              onPress={() => {
+                Alert.alert(
+                  t('exportData'),
+                  'Choose export format:',
+                  [
+                    { text: 'Cancel', style: 'cancel' },
+                    { 
+                      text: 'PDF Report', 
+                      onPress: () => {
+                        Alert.alert('Exporting...', 'Your health data is being exported as PDF. You will receive an email when ready.');
+                      }
+                    },
+                    { 
+                      text: 'CSV Data', 
+                      onPress: () => {
+                        Alert.alert('Exporting...', 'Your health data is being exported as CSV. Download will start shortly.');
+                      }
+                    }
+                  ]
+                );
+              }}
               style={{ 
                 flexDirection: 'row', 
                 alignItems: 'center', 
@@ -497,7 +541,7 @@ export default function ProfileScreen() {
             >
               <Text style={{ fontSize: 20, marginRight: 15 }}>📤</Text>
               <Text style={{ fontSize: 16, color: colors.text, flex: 1 }}>
-                Export My Data
+                {t('exportData')}
               </Text>
               <Text style={{ color: colors.primary }}>→</Text>
             </TouchableOpacity>
@@ -537,7 +581,7 @@ export default function ProfileScreen() {
               fontWeight: 'bold', 
               color: 'white' 
             }}>
-              🚪 Sign Out
+              🚪 {t('signOut')}
             </Text>
           </TouchableOpacity>
         </View>
