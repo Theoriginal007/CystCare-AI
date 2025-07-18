@@ -2,11 +2,10 @@
 
 ## Overview
 
-This project develops machine learning models to predict ovarian cyst growth rates (cm/month) based on patient demographics, clinical features, and diagnostic information. The models aim to assist healthcare providers in making informed decisions about patient management and treatment planning.
+Machine learning model to predict ovarian cyst growth rates (cm/month) based on patient demographics, clinical features, and diagnostic information. The models aim to assist healthcare providers in making informed decisions about patient management and treatment planning.
 
 ## Dataset
 
-**Source:** `Ovarian_Cyst.csv`
 **Size:** 100 patient records
 **Target Variable:** Cyst Growth Rate (cm/month)
 
@@ -112,44 +111,3 @@ The Random Forest model identified the most important features for prediction, t
    - Include additional clinical features (hormone levels, genetic markers)
    - Structured ultrasound feature extraction
    - Longitudinal data for time-series analysis
-
-2. **Feature Engineering:**
-   - Age binning and interaction terms
-   - Symptom text analysis using NLP
-   - Regional clustering based on healthcare infrastructure
-   - Temporal features from examination dates
-
-3. **Model Enhancements:**
-   - Cross-validation for more robust evaluation
-   - Hyperparameter tuning
-   - Feature selection techniques
-   - Try other algorithms (XGBoost, Neural Networks)
-
-4. **Clinical Validation:**
-   - Collaborate with medical professionals for feature selection
-   - External validation on independent datasets
-   - Consider clinical significance of prediction errors
-
-## Usage
-
-### Requirements
-```python
-pandas >= 1.3.0
-scikit-learn >= 0.24.0
-numpy >= 1.21.0
-matplotlib >= 3.3.0
-seaborn >= 0.11.0
-```
-
-### Running the Models
-```python
-# Load and preprocess data
-df = pd.read_csv('Ovarian_Cyst.csv')
-# ... preprocessing steps ...
-
-# Train models
-from sklearn.ensemble import RandomForestRegressor
-model = RandomForestRegressor(random_state=42)
-model.fit(X_train, y_train)
-predictions = model.predict(X_test)
-```
